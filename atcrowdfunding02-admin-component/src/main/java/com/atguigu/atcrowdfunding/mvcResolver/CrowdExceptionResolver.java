@@ -1,6 +1,7 @@
 package com.atguigu.atcrowdfunding.mvcResolver;
 
 import com.atguigu.atCrowdFunding.exception.LoginFailedException;
+import com.atguigu.atCrowdFunding.exception.RoleAlreadyException;
 import com.atguigu.atCrowdFunding.exception.UpdateAdminAlreadyException;
 import com.atguigu.atCrowdFunding.stant.CrowdConstant;
 import com.atguigu.atCrowdFunding.util.CrowdUtil;
@@ -149,6 +150,34 @@ public class CrowdExceptionResolver {
         modelAndView.addObject(CrowdConstant.USER_ALIVED_EXCEPTION,exception);
         // 设置对应视图名称
         modelAndView.setViewName("system-error");
+        return modelAndView;
+    }
+
+    @ExceptionHandler(value = RoleAlreadyException.class)
+    public ModelAndView resolverUpdateRoleAlreadyException(RoleAlreadyException exception,
+                                                           HttpServletRequest request,
+                                                           HttpServletResponse response) throws IOException {
+        // 判断当前请求类型
+        boolean isAjax = CrowdUtil.judgeRequstType(request);
+
+        if(isAjax) {
+            // 创建返回对象是否为ajax请求
+            CommonResult<Object> failed = CommonResult.failed(exception.getMessage());
+            // 创建Gson
+            Gson gson = new Gson();
+            // 转换为json字符串
+            String json = gson.toJson(failed);
+            // 将json字符串作为响应体返回浏览器
+            response.getWriter().write(json);
+            return null;
+        }
+
+        // 不是ajax请求
+        ModelAndView modelAndView = new ModelAndView();
+        // 将异常类型存入模型
+        modelAndView.addObject(CrowdConstant.ROLE_ALIVED_EXCEPTION,exception);
+        // 设置对应视图名称
+        modelAndView.setViewName("role-page");
         return modelAndView;
     }
 

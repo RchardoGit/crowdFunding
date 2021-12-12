@@ -24,4 +24,6 @@ public interface AdminService {
     Admin getAdminById(Integer id);
 
     void update(Admin admin);
+
+    void saveAdminAssignRole(Integer adminId, List<Integer> roleIdList);
 }

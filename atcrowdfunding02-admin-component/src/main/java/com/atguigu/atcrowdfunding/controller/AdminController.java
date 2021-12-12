@@ -89,6 +89,8 @@ public class AdminController {
         PageInfo<Admin> pageInfo = adminService
                 .getAdminByKeyword(keyword, pageNum, pageSize);
         model.addAttribute(CrowdConstant.ATTR_NAME_PAGE_INFO,pageInfo);
+        System.out.println("已经插入====================================" +
+                "==================================");
         return "admin-page";
 
     }

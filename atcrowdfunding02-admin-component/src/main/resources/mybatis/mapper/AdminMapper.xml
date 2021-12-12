@@ -108,6 +108,9 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  <delete id="deleteAdminAssignRole" parameterType="integer">
+    delete from inner_admin_role where admin_id=#{adminId};
+  </delete>
   <insert id="insert" parameterType="com.atguigu.atcrowdfunding.entity.Admin">
     insert into t_admin (id, login_acct, user_pswd, 
       user_name, email, create_time
@@ -158,6 +161,13 @@
         #{createTime,jdbcType=CHAR},
       </if>
     </trim>
+  </insert>
+
+  <insert id="addAdminAssignRole" >
+    insert into inner_admin_role (admin_id,role_id) values
+    <foreach collection="roleIdList" item="roleId" separator=",">
+    (#{adminId},#{roleId})</foreach>
+
   </insert>
   <select id="countByExample" parameterType="com.atguigu.atcrowdfunding.entity.AdminExample" resultType="java.lang.Long">
     select count(*) from t_admin

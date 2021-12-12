@@ -121,4 +121,15 @@ public class AdminServiceImpl implements AdminService {
             }
         }
     }
+
+    @Override
+    public void saveAdminAssignRole(Integer adminId, List<Integer> roleIdList) {
+
+        // 先删除表中的数据
+        adminMapper.deleteAdminAssignRole(adminId);
+        // 添加数据
+        if(roleIdList !=null && roleIdList.size()>0) {
+            adminMapper.addAdminAssignRole(adminId,roleIdList);
+        }
+    }
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.filter.DelegatingFilterProxy;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -59,6 +60,7 @@ public class SpringTest1 {
         Admin admin = new Admin(null, "jack", "123123", "杰克", "jack.@qq.com", null);
         adminService.saveAdmin(admin);
     }
+
 
 
 }
