@@ -14,6 +14,8 @@
     <module>atcrowdfunding03-admin-entity</module>
     <module>atcrowdfunding04-common-util</module>
     <module>atcrowdfunding05-common-reverse</module>
+      <module>testConfigSpring</module>
+      <module>atcrowdfunding06-springSecurity</module>
   </modules>
   <packaging>pom</packaging>
   <properties>
@@ -29,6 +31,7 @@
     <mybatis.plus.version>3.4.3</mybatis.plus.version>
     <mybatis.spring.version>2.0.6</mybatis.spring.version>
     <spring.version>5.3.10</spring.version>
+    <spring.security.version>5.5.3</spring.security.version>
   </properties>
 
   <dependencyManagement>
@@ -47,6 +50,21 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-test</artifactId>
         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-web</artifactId>
+        <version>${spring.security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-config</artifactId>
+        <version>${spring.security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-taglibs</artifactId>
+        <version>${spring.security.version}</version>
       </dependency>
 
       <dependency>

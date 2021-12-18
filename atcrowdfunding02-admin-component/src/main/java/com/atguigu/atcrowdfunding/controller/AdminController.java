@@ -62,24 +62,24 @@ public class AdminController {
      * @param session
      * @return
      */
-    @PostMapping(value = "/admin/do/login.html")
-    public String login(@RequestParam("loginAcct") String loginAcct,
-                        @RequestParam("userPswd") String userPswd,
-                        HttpSession session) {
-        Admin admin = adminService.getAdminByLoginAcct(loginAcct,userPswd);
-        session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_ADMIN,admin);
-
-        return "redirect:/admin/do/main/page.html";
-    }
+//    @PostMapping(value = "/admin/do/login.html")
+//    public String login(@RequestParam("loginAcct") String loginAcct,
+//                        @RequestParam("userPswd") String userPswd,
+//                        HttpSession session) {
+//        Admin admin = adminService.getAdminByLoginAcct(loginAcct,userPswd);
+//        session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_ADMIN,admin);
+//
+//        return "redirect:/admin/do/main/page.html";
+//    }
 
     /**
      * 管理员退出系统
      * @return
      */
-    @GetMapping(value = "/admin/main/logout.html")
-    public String logout() {
-        return "redirect:/admin/do/login/page.html";
-    }
+//    @GetMapping(value = "/admin/main/logout.html")
+//    public String logout() {
+//        return "redirect:/admin/do/login/page.html";
+//    }
 
     @RequestMapping(value ="/admin/list/page.html" )
     public String getAdminByKeyword(@RequestParam(value = "keyword",defaultValue = "")String keyword,

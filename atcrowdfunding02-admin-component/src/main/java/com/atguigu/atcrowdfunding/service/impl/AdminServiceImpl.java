@@ -132,4 +132,18 @@ public class AdminServiceImpl implements AdminService {
             adminMapper.addAdminAssignRole(adminId,roleIdList);
         }
     }
+
+    @Override
+    public Admin getAdminByUserName(String loginAcct) {
+
+        AdminExample adminExample = new AdminExample();
+        AdminExample.Criteria criteria = adminExample.createCriteria();
+        criteria.andLoginAcctEqualTo(loginAcct);
+        List<Admin> adminList = adminMapper.selectByExample(adminExample);
+        if(adminList == null || adminList.size() != 1) {
+            return null;
+        }
+        Admin admin = adminList.get(0);
+        return admin;
+    }
 }

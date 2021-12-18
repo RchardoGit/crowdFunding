@@ -28,8 +28,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public List<Integer> getAuthIdByRoleId(Integer roleId) {
-        authMapper.selectAuthIdByRoleId(roleId);
-        return null;
+        return authMapper.selectAuthIdByRoleId(roleId);
     }
 
     @Override
@@ -41,9 +40,21 @@ public class AuthServiceImpl implements AuthService {
         authMapper.deleteOldRelationship(roleId);
         // 获取authIdList
         List<Integer> authIdList = map.get("authIdArray");
+        System.out.println("=====================================");
+        for (Integer authId : authIdList) {
+            System.out.println("===================" + authId);
+        }
+
         // 判断authIdList是否有效
         if(authIdList != null && authIdList.size() >0) {
             authMapper.insertNewRelationship(roleId,authIdList);
         }
     }
+
+    @Override
+    public List<String> getAssignedAuthListByAdminId(Integer adminId) {
+        return authMapper.selectAssignedAuthList(adminId);
+    }
+
+
 }

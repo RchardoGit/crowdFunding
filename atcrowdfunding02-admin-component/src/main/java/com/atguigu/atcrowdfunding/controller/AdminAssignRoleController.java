@@ -5,6 +5,7 @@ import com.atguigu.atcrowdfunding.entity.Role;
 import com.atguigu.atcrowdfunding.service.AdminService;
 import com.atguigu.atcrowdfunding.service.RoleService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
@@ -31,6 +32,7 @@ public class AdminAssignRoleController {
     private RoleService roleService;
 
 //    pageNum=${requestScope.pageInfo.pageNum }&keyword=${param.keyword }
+    @PreAuthorize("hasRole('部长')")
     @GetMapping(value = "assign/to/assign/role/page.html")
     public String toAdminAssignRolePage(@RequestParam("adminId")Integer adminId,
                                         Model model) {

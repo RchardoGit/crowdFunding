@@ -5,6 +5,7 @@ import com.atguigu.atcrowdfunding.commResult.CommonResult;
 import com.atguigu.atcrowdfunding.entity.Role;
 import com.atguigu.atcrowdfunding.service.RoleService;
 import com.github.pagehelper.PageInfo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class RoleController {
     @Resource
     private RoleService roleService;
 
-
+    @PreAuthorize("hasRole('部长')")
     @RequestMapping(value = "/role/get/page/info.json")
     public CommonResult<PageInfo<Role>> getRoles(@RequestParam(value = "keyword",defaultValue = "")String keyword,
                                                  @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,

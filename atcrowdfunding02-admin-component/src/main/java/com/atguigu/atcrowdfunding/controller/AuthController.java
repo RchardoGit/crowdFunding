@@ -5,6 +5,7 @@ import com.atguigu.atcrowdfunding.entity.Auth;
 import com.atguigu.atcrowdfunding.entity.Role;
 import com.atguigu.atcrowdfunding.service.AuthService;
 import com.atguigu.atcrowdfunding.service.RoleService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,12 +29,15 @@ public class AuthController {
     @Resource
     private RoleService roleService;
 
+
     @ResponseBody
-    @RequestMapping(value = "/assign/get/all/auth.json")
+    @RequestMapping(value = "/assgin/get/all/auth.json")
     public CommonResult<List<Auth>> getAllAuth() {
         List<Auth> authList = authService.getAll();
+        System.out.println(authList);
         return CommonResult.successWithData(authList);
     }
+
 
     @ResponseBody
     @RequestMapping(value = "/assign/get/assigned/auth/id/by/role/id.json")

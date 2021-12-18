@@ -5,7 +5,7 @@
   Time: 22:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <html lang="zh-CN">
 <head>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/login.css">
-    <script src="static/jquery/jquery-3.1.0.js"></script>
+    <script src="static/jquery/jquery-2.1.1.min.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js"></script>
     <script src="static/layer/layer.js"></script>
     <script type="text/javascript">

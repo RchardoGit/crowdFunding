@@ -12,16 +12,45 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CommonResult<T> {
-    private Integer status;
+    public static final String SUCCESS = "SUCCESS";
+    public static final String FAILED = "FAILED";
+
+    // 用来封装当前请求处理的结果是成功还是失败
+    private String result;
+
+    // 请求处理失败时返回的错误消息
     private String message;
+
+    // 要返回的数据
     private T data;
 
-    public static <E> CommonResult<E> success(String message) {
-        return new CommonResult<E>(200,message,null);
+    /**
+     * 请求处理成功且不需要返回数据时使用的工具方法
+     * @return
+     */
+    public static <Type> CommonResult<Type> successWithoutData() {
+        return new CommonResult<Type>(SUCCESS, null, null);
     }
 
-    public static <E> CommonResult<E> failed(String message) {
-        return new CommonResult<E>(444,message,null);
+    /**
+     * 请求处理成功且需要返回数据时使用的工具方法
+     * @param data 要返回的数据
+     * @return
+     */
+    public static <Type> CommonResult<Type> successWithData(Type data) {
+        return new CommonResult<Type>(SUCCESS, null, data);
     }
+
+    /**
+     * 请求处理失败后使用的工具方法
+     * @param message 失败的错误消息
+     * @return
+     */
+    public static <Type> CommonResult<Type> failed(String message) {
+        return new CommonResult<Type>(FAILED, message, null);
+    }
+
+
+
 
 }

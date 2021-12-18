@@ -69,8 +69,8 @@ public class CrowdExceptionResolver {
      * @return
      * @throws IOException
      */
-    @ExceptionHandler(value = NullPointerException.class)
-    public ModelAndView resolverNullPointException(NullPointerException exception,
+    @ExceptionHandler(value = Exception.class)
+    public ModelAndView resolverNullPointException(Exception exception,
                                                    HttpServletRequest request,
                                                    HttpServletResponse response) throws IOException {
         // 判断当前请求类型
@@ -91,7 +91,7 @@ public class CrowdExceptionResolver {
         // 不是ajax请求
         ModelAndView modelAndView = new ModelAndView();
         // 将异常类型存入模型
-        modelAndView.addObject(CrowdConstant.LOGIN_EXCEPTION,exception);
+        modelAndView.addObject(CrowdConstant.MESSAGE_ACCESS_DENIED,exception);
         // 设置对应视图名称
         modelAndView.setViewName("system-error");
         return modelAndView;

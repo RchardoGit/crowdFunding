@@ -19,7 +19,9 @@ jQuery.fn.pagination = function(maxentries, opts){
 		ellipse_text:"...",
 		prev_show_always:true,
 		next_show_always:true,
-		callback:function(){return false;}
+		callback:function(){
+			return false;
+		}
 	},opts||{});
 	
 	return this.each(function() {

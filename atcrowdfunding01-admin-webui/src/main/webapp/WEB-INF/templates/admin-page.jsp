@@ -5,7 +5,7 @@
   Time: 12:00
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="zh-CN">
 <%@include file="incloud-head.jsp"%>
@@ -39,6 +39,7 @@
 
         // 生成页码导航条
         $("#Pagination").pagination(totalRecord, properties);
+
 
     }
 
@@ -124,9 +125,8 @@
                                         <td>${admin.userName }</td>
                                         <td>${admin.email }</td>
                                         <td>
-                                            <button type="button" class="btn btn-success btn-xs">
-                                                <i class=" glyphicon glyphicon-check"></i>
-                                            </button>
+                                                <a href="assign/to/assign/role/page.html?adminId=${admin.id }&pageNum=${requestScope.pageInfo.pageNum }&keyword=${param.keyword }"
+                                                   class="btn btn-success btn-xs"><i class="glyphicon glyphicon-check"></i></a>
                                             <!-- 旧代码 -->
                                             <!-- <button type="button" class="btn btn-primary btn-xs">
                                                 <i class=" glyphicon glyphicon-pencil"></i>

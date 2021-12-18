@@ -15,4 +15,7 @@ public class CrowdConstant {
     public static final String MESSAGE_SYSTEM_ERROR_USER_NOT_UNIQUE = "用户不唯一";
     public static final String MESSAGE_USER_NOT_LOGIN = "用户未登录";
     public static final String ATTR_NAME_PAGE_INFO = "pageInfo";
+    public static final String ROLE_ALIVED_EXCEPTION = "角色已存在";
+    public static final String MENU_NULL_EXCEPTION = "内容不能为空";
+    public static final String MESSAGE_ACCESS_DENIED = "不好意思，您没有权限访问该页面";
 }

@@ -26,4 +26,6 @@ public interface AdminService {
     void update(Admin admin);
 
     void saveAdminAssignRole(Integer adminId, List<Integer> roleIdList);
+
+    Admin getAdminByUserName(String loginAcct);
 }
